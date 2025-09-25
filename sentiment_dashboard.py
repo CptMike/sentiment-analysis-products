@@ -5,10 +5,8 @@ import joblib
 # Load the trained model and vectorizer
 model = joblib.load(r"sentiment_model.pkl")
 tfidf_vectorizer = joblib.load(r"vectorizer.pkl")
-
 # Title of the dashboard
 st.title("🌟 Product Review Sentiment Analysis 🌟")
-
 # Input section for user reviews
 st.header("✍️ Input Your Review")
 user_review = st.text_area("Enter your product review:", "")
@@ -18,7 +16,7 @@ if st.button("Predict Sentiment"):
     if user_review:
         # Preprocess and vectorize the input review
         review_vector = tfidf_vectorizer.transform([user_review])
-        
+
         # Predict sentiment
         prediction = model.predict(review_vector)
         
